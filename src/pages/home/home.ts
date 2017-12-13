@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MyValidators } from './../../validators/validators';
 
 @IonicPage()
 @Component({
@@ -56,7 +57,20 @@ export class HomePage {
       direccion:['',[Validators.required,Validators.minLength(5),Validators.maxLength(100)]],
       correo:['',[Validators.required,Validators.email]],
       tipo_contacto:['Telefono',[Validators.required]],
-      numero_contacto:['',[Validators.required]]
+      numero_contacto:['',[Validators.required, MyValidators.checkPhoneSize]]
+    });
+
+    this.formularioUsuario.get('tipo_contacto')
+    .valueChanges
+    .subscribe(value => {
+      console.log(value);
+      if (value === 'Telefono') {
+        const validators = [Validators.required, MyValidators.checkPhoneSize];
+        this.formularioUsuario.get('numero_contacto').setValidators(validators);
+      }else {
+        const validators = [Validators.required, MyValidators.checkCellPhoneSize];
+        this.formularioUsuario.get('numero_contacto').setValidators(validators);
+      }
     });
   }
 
