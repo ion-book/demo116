@@ -14,32 +14,61 @@
         <ion-item>
           <ion-icon name="person" item-left></ion-icon>
           <ion-label stacked>Nombre:</ion-label>
-          <ion-input formControlName="nombre" type="text" placeholder="Nombre" name="nombre" [(ngModel)]="datosUsuario.nombre" ></ion-input>
+          <ion-input
+            formControlName="nombre"
+            type="text"
+            placeholder="Nombre"
+            name="nombre">
+          </ion-input>
         </ion-item>
         <ion-item *ngIf="formularioUsuario.get('nombre').errors && formularioUsuario.get('nombre').dirty">
-          <p *ngIf="formularioUsuario.get('nombre').hasError('required')" style="white-space: normal; color:red">El nombre es requerido.</p>
-          <p *ngIf="formularioUsuario.get('nombre').hasError('maxlength')" style="white-space: normal; color:red">El maximo de caracteres permitidos es 30.</p>
+          <p *ngIf="formularioUsuario.get('nombre').hasError('required')" class="error">
+            El nombre es requerido.
+          </p>
+          <p *ngIf="formularioUsuario.get('nombre').hasError('maxlength')" class="error">
+            El maximo de caracteres permitidos es 30.
+          </p>
         </ion-item>
         <ion-item>
           <ion-icon name="pin" item-left></ion-icon>
           <ion-label stacked>Dirección:</ion-label>
-          <ion-input formControlName="direccion" type="text" placeholder="Dirección" name="direccion" [(ngModel)]="datosUsuario.direccion"></ion-input>
+          <ion-input
+            formControlName="direccion"
+            type="text"
+            placeholder="Dirección"
+            name="direccion">
+          </ion-input>
         </ion-item>
         <ion-item *ngIf="formularioUsuario.get('direccion').errors && formularioUsuario.get('direccion').dirty">
-          <p *ngIf="formularioUsuario.get('direccion').hasError('required')" style="white-space: normal; color:red">La dirección es requerida.</p>
-          <p *ngIf="formularioUsuario.get('direccion').hasError('minlength')" style="white-space: normal; color:red">El minimi de caracteres permitidos es 5.</p>
-          <p *ngIf="formularioUsuario.get('direccion').hasError('maxlength')" style="white-space: normal; color:red">El maximo de caracteres permitidos es 100.</p>
+          <p *ngIf="formularioUsuario.get('direccion').hasError('required')" class="error">
+            La dirección es requerida.
+          </p>
+          <p *ngIf="formularioUsuario.get('direccion').hasError('minlength')" class="error">
+            El minimi de caracteres permitidos es 5.
+          </p>
+          <p *ngIf="formularioUsuario.get('direccion').hasError('maxlength')" class="error">
+            El maximo de caracteres permitidos es 100.
+          </p>
         </ion-item>
         <ion-item>
           <ion-icon name="at" item-left></ion-icon>
           <ion-label stacked>Correo Electronico:</ion-label>
-          <ion-input formControlName="correo" type="email" placeholder="correo" name="correo" [(ngModel)]="datosUsuario.correo" ></ion-input>
+          <ion-input
+            formControlName="correo"
+            type="email"
+            placeholder="correo"
+            name="correo">
+          </ion-input>
         </ion-item>
         <ion-item *ngIf="formularioUsuario.get('correo').errors && formularioUsuario.get('correo').dirty">
-          <p *ngIf="formularioUsuario.get('correo').hasError('required')" style="white-space: normal; color:red">El correo es requerido.</p>
-          <p *ngIf="formularioUsuario.get('correo').hasError('email')" style="white-space: normal; color:red">El correo electronico indicado no es valido.</p>
+          <p *ngIf="formularioUsuario.get('correo').hasError('required')" class="error">
+            El correo es requerido.
+          </p>
+          <p *ngIf="formularioUsuario.get('correo').hasError('email')" class="error">
+            El correo electronico indicado no es valido.
+          </p>
         </ion-item>
-        <ion-row radio-group formControlName="tipo_contacto" name="tipo_contacto" [(ngModel)]="datosUsuario.tipo_contacto" (ionChange)="tipoContactoChange()">
+        <ion-row radio-group formControlName="tipo_contacto">
           <ion-col col-6>
             <ion-item>
               <ion-icon name="call" item-left></ion-icon>
@@ -53,24 +82,35 @@
               <ion-label>Celular</ion-label>
               <ion-radio value="Celular"></ion-radio>
             </ion-item>
-          </ion-col>          
+          </ion-col>
         </ion-row>
         <ion-item *ngIf="formularioUsuario.get('tipo_contacto').errors && formularioUsuario.get('tipo_contacto').dirty">
-          <p *ngIf="formularioUsuario.get('tipo_contacto').hasError('required')" style="white-space: normal; color:red">El tipo de contacto es requerido.</p>
+          <p *ngIf="formularioUsuario.get('tipo_contacto').hasError('required')" class="error">
+            El tipo de contacto es requerido.
+          </p>
         </ion-item>
         <ion-item>
           <ion-icon name="call" item-left></ion-icon>
           <ion-label stacked>Numero de contacto:</ion-label>
-          <ion-input formControlName="numero_contacto" type="text" placeholder="Numero de contacto"name="numero_contacto" [(ngModel)]="datosUsuario.numero_contacto" tamano-telefono-tipo [tipoContacto]='_tipoContacto' ></ion-input>
+          <ion-input
+            formControlName="numero_contacto"
+            type="text"
+            placeholder="Numero de contacto"
+            name="numero_contacto">
+          </ion-input>
         </ion-item>
         <ion-item *ngIf="formularioUsuario.get('numero_contacto').errors && formularioUsuario.get('numero_contacto').dirty">
-          <p *ngIf="formularioUsuario.get('numero_contacto').hasError('required')" style="white-space: normal; color:red">El numero es requerido.</p>
-          <p *ngIf="formularioUsuario.get('numero_contacto').hasError('tamano-telefono-tipo')" style="white-space: normal; color:red">{{ this.formularioUsuario.get('numero_contacto').errors['mensaje'] }}</p>
+          <p *ngIf="formularioUsuario.get('numero_contacto').hasError('required')" class="error">
+            El numero es requerido.
+          </p>
+          <p *ngIf="formularioUsuario.get('numero_contacto').hasError('tamano-telefono-tipo')" class="error">
+            {{ this.formularioUsuario.get('numero_contacto').errors['mensaje'] }}
+          </p>
         </ion-item>
-        <ion-item>
-          <button ion-button block type="submit" [disabled]="!formularioUsuario.valid">Enviar</button>
-        </ion-item>
-      </ion-list> 
+      </ion-list>
+      <div class="padding">
+        <button ion-button block type="submit" [disabled]="!formularioUsuario.valid">Enviar</button>
+      </div>
     </form>
   </div>
 </ion-content>

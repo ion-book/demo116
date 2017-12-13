@@ -5,14 +5,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { LongitudNumeroTelefonoTipo } from '../directives/longitud-numero-telefonico-tipo.directive';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    LongitudNumeroTelefonoTipo
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -21,7 +17,6 @@ import { LongitudNumeroTelefonoTipo } from '../directives/longitud-numero-telefo
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
   ],
   providers: [
     StatusBar,
