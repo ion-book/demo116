@@ -14,7 +14,7 @@ export class MyValidators{
 
   static checkCellPhoneSize(control: FormControl) {
     const value: string = control.value;
-    if (value && value.length >= 7) {
+    if (value && value.length >= 10) {
       return {
         'cellPhoneSize': true
       }
