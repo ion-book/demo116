@@ -71,6 +71,7 @@ export class HomePage {
         const validators = [Validators.required, MyValidators.checkCellPhoneSize];
         this.formularioUsuario.get('numero_contacto').setValidators(validators);
       }
+      this.formularioUsuario.updateValueAndValidity();
     });
   }
 
