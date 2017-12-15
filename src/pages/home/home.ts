@@ -27,12 +27,16 @@ export class HomePage {
     this.buildForm();
   }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad HomePage');
+  }
+
   /**
    * evento que se ejecuta al enviar la informacion, este solo cumple la funcion de mostrar un mensaje de informacion,
    * resetea el formulario y sus validaciones y limpia el parametro datosUsuario para el nuevo ingreso de informacion.
    */
   saveData(){
-    console.log(this.formularioUsuario.value)
+    console.log(this.formularioUsuario.value);
     const alert = this.alertCtrl.create({
       title: "Datos enviados!",
       subTitle: "Información",
@@ -41,10 +45,6 @@ export class HomePage {
     });
     alert.present()
     this.buildForm();
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
   }
 
 

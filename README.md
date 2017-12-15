@@ -1,4 +1,4 @@
-## Repositorio basado en el artículo [Formularios en Ionic](https://www.ion-book.com/blog/ionic2/forms-with-ionic/)
+## Repositorio basado en el artículo [Validaciones dinámicas](https://www.ion-book.com/blog/ionic2/validations/)
 
 Este proyecto usa:
 
